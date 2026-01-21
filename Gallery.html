@@ -317,59 +317,39 @@ body{
     font-size: 1.4rem;
   }
 }
-/* ========= JCSSO SECTION ========= */
-.jcsso-section {
-  background-color: #f9f9f9;
-  padding: 40px 20px;
-  border-bottom: 1px solid var(--border);
+/* ========= GALLERY ========= */
+.gallery-section {
+  max-width: 1400px;
+  margin: 0px auto;
+  padding: 20px;
 }
 
-.jcsso-container {
-  max-width: 1000px;
-  margin: auto;
-  color: var(--dark);
-  font-size: 1rem;
-  line-height: 1.7;
-}
-
-.jcsso-container h2 {
+.gallery-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
   color: var(--green);
-  font-size: 1.8rem;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
-.jcsso-container h3 {
-  color: var(--blue);
-  font-size: 1.4rem;
-  margin-top: 30px;
-  margin-bottom: 15px;
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
 }
 
-.jcsso-container ul {
-  padding-left: 20px;
+.gallery-grid img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid var(--border);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.jcsso-container ul li {
-  margin-bottom: 12px;
-}
-
-/* Responsive Typography */
-@media (min-width: 600px) {
-  .jcsso-container {
-    font-size: 1.1rem;
-  }
-  .jcsso-container h3{
-    font-size: 2rem;
-  }
-  .jcsso-container h4 {
-    font-size: 1.6rem;
-  }
-}
-
-@media (min-width: 900px) {
-  .jcsso-container {
-    font-size: 1.1rem;
-  }
+.gallery-grid img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
 }
 :root{
   --green:#2f7d32;
@@ -626,26 +606,52 @@ body{
 
   </div>
 </div>
-<!-- ========= JCSSO INTRODUCTION ========= -->
-<section class="jcsso-section">
-  <div class="jcsso-container">
-    <h2>Introduction:</h2>
-    <p>
- Justice & Civil Society Support Organization (JCSSO) is a national non-governmental, non-profit, and non-political organization JCSSO’s mandate is to seek a world of hope, tolerance and social justice; where poverty has been overcome and people live in dignity, justice and security. JCSSO stablished/registered with Afghan ministry of economy in 2009 as NNGO. JCSSO puts people rights including humanitarian principle, values, transparency and accountability in the center of all performances because we know that we cannot overcome poverty and social injustice until all people have no equal rights and opportunities JCSSO is aimed to tackle the humanitarian crisis including droughts and disaster prevention and develops community basic social Services needs for the Youth, Women, IDPs and poor rural community to reduce the level of poverty and contribute National Development Goals.
-    </p>
-    <h2>JCSSO Strategic priorities :</h2>
-<p>Strategic Priority 1: Empowerment of women and girls to lead in breaking the cycle of poverty and violence and gain control over economic resources and livelihood options to live a life with dignity</p>
-      <p>
-      
-      
-      Strategic Priority 2: Ensuring sustainable food and nutrition security, promoting climate resilient sustainable agriculture and inclusive livelihoods for the people living in poverty and conflict.
-      
-    </p>
-      <p>Strategic Priority 3: Building resilience of the right holders to conflicts and disasters and respond to humanitarian issues with people-centered rights based alternatives, including preparedness, adaptation and prevention.</p>
-      <p>Strategic Priority 4: Increasing civic participation and state accountability through youth led advocacy for quality and gender responsive public services and fair distribution of resources.</p>
-  </div>
-</section>
 
+ <!-- ========= GALLERY SECTION ========= -->
+<div class="gallery-section">
+ 
+  <div class="gallery-grid">
+    <!-- ۳۴ عکس -->
+    <!-- مسیر عکس‌ها را تغییر بده -->
+    <!-- مثال: images/photo1.jpg تا images/photo34.jpg -->
+    <!-- alt را برای دسترسی بهتر پر کن -->
+    <!-- شروع عکس‌ها -->
+    <img src="gallary/1.jpeg">
+    <img src="gallary/2.jpeg" alt="Gallery Image 3">
+    <img src="gallary/3.jpeg" alt="Gallery Image 3">
+    <img src="gallary/4.jpeg" alt="Gallery Image 4">
+    <img src="gallary/5.jpeg" alt="Gallery Image 5">
+    <img src="gallary/6.jpeg" alt="Gallery Image 6">
+    <img src="gallary/7.jpeg" alt="Gallery Image 7">
+    <img src="gallary/8.jpeg" alt="Gallery Image 8">
+    <img src="gallary/9.png" alt="Gallery Image 9">
+    <img src="gallary/10.jpeg" alt="Gallery Image 10">
+    <img src="gallary/11.jpeg" alt="Gallery Image 11">
+    <img src="gallary/13.jpeg" alt="Gallery Image 12">
+    <img src="gallary/12.jpeg" alt="Gallery Image 13">
+    <img src="gallary/14.jpeg" alt="Gallery Image 14">
+    <img src="gallary/15.jpeg" alt="Gallery Image 15">
+    <img src="gallary/16.jpeg" alt="Gallery Image 16">
+    <img src="gallary/17.jpeg" alt="Gallery Image 17">
+    <img src="gallary/18.jpeg" alt="Gallery Image 18">
+    <img src="gallary/19.jpeg" alt="Gallery Image 19">
+    <img src="gallary/20.jpeg" alt="Gallery Image 20">
+    <img src="gallary/21.jpeg" alt="Gallery Image 21">
+    <img src="gallary/22.jpeg" alt="Gallery Image 22">
+    <img src="gallary/23.jpeg" alt="Gallery Image 23">
+    <img src="gallary/24.jpeg" alt="Gallery Image 24">
+    <img src="gallary/25.jpeg" alt="Gallery Image 25">
+    <img src="gallary/26.jpeg" alt="Gallery Image 26">
+    <img src="gallary/27.jpeg" alt="Gallery Image 27">
+    <img src="gallary/28.jpeg" alt="Gallery Image 28">
+    <img src="gallary/29.jpeg" alt="Gallery Image 29">
+    <img src="gallary/" alt="Gallery Image 30">
+    <img src="images/photo31.jpg" alt="Gallery Image 31">
+    <img src="images/photo32.jpg" alt="Gallery Image 32">
+    <img src="images/photo33.jpg" alt="Gallery Image 33">
+    <img src="images/photo34.jpg" alt="Gallery Image 34">
+  </div>
+</div>
 <footer class="site-footer">
   <div class="footer-container">
 
@@ -699,10 +705,9 @@ body{
       <a href="#"><i class="fa-brands fa-instagram"></i></a>
       <a href="https://www.youtube.com/@jcssongo6279"><i class="fa-brands fa-youtube"></i></a>
     </div>
-    <p>© Copyright 2026 JCSSO NGO. Powered By S design.</p>
+    <p>© Copyright 2026JCSSO NGO. Powered By S design.</p>
   </div>
 </footer>
- 
 
 </body>
 </html>
