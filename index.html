@@ -717,6 +717,7 @@ body{
 </script>
 
 
+
     
 <!-- ========= TOP BAR ========= -->
 <div class="top-bar">
@@ -842,28 +843,29 @@ body{
    <section class="social-map-section">
   <div class="social-map-container">
 
-    <!-- Facebook -->
+    <!-- Facebook (Lazy Load) -->
     <div class="social-box">
       <h3>Social Media</h3>
-      <div class="fb-page"
-        data-href="https://www.facebook.com/jcssongo/"
-        data-tabs="timeline"
-        data-adapt-container-width="true"
-        data-height="500">
-      </div>
+
+      <button onclick="loadFacebook()" class="blue-more-btn">
+        Load Facebook Feed
+      </button>
+
+      <div id="fb-container"></div>
     </div>
 
     <!-- Map -->
     <div class="social-box">
-  <h3>Afghanistan Map</h3>
+      <h3>Afghanistan Map</h3>
+      <iframe
+        loading="lazy"
+        src="https://www.google.com/maps/embed?pb=....">
+      </iframe>
+    </div>
 
-  <iframe
-    loading="lazy"
-    src="https://www.google.com/maps/embed?pb=........">
-  </iframe>
-</div>
-
+  </div>
 </section>
+
 
 
 
@@ -943,6 +945,21 @@ body{
     <p>© Copyright 2026 JCSSO NGO. Powered By (S design).</p>
   </div>
 </footer>
+    <script>
+function loadFacebook(){
+  document.getElementById("fb-container").innerHTML = `
+    <div class="fb-page"
+      data-href="https://www.facebook.com/jcssongo/"
+      data-tabs="timeline"
+      data-adapt-container-width="true"
+      data-height="500">
+    </div>`;
+  if (window.FB) {
+    FB.XFBML.parse();
+  }
+}
+</script>
+
 </body>
 </html>
 
