@@ -222,6 +222,43 @@ body{font-family:'Poppins', sans-serif;color:var(--dark);line-height:1.6;}
   </div>
   <div style="text-align:center; margin-top:15px;"><a href="Gallery.html" class="blue-more-btn">Read More</a></div>
 </div>
+  <div class="social-box">
+  <h3>Social Media</h3>
+  <!-- iframe همیشه نمایش داده می‌شود -->
+  <div id="fb-container">
+    <iframe 
+      src="https://www.facebook.com/plugins/page.php?href=https://www.facebook.com/jcssongo/&tabs=timeline&width=500&height=400&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" 
+      width="100%" 
+      height="400" 
+      style="border:none;overflow:hidden;border-radius:8px;" 
+      scrolling="no" 
+      frameborder="0" 
+      allowfullscreen="true" 
+      allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+    </iframe>
+  </div>
+
+  <!-- دکمه فقط refresh می‌کند -->
+  <button onclick="refreshFacebook()" class="blue-more-btn">Refresh Facebook Feed</button>
+</div>
+
+<script>
+function refreshFacebook() {
+  const container = document.getElementById("fb-container");
+  // iframe قدیمی حذف و دوباره ایجاد می‌شود
+  container.innerHTML = `<iframe 
+    src="https://www.facebook.com/plugins/page.php?href=https://www.facebook.com/jcssongo/&tabs=timeline&width=500&height=400&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" 
+    width="100%" 
+    height="400" 
+    style="border:none;overflow:hidden;border-radius:8px;" 
+    scrolling="no" 
+    frameborder="0" 
+    allowfullscreen="true" 
+    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+  </iframe>`;
+}
+</script>
+
 
 <!-- SOCIAL + MAP -->
 <section class="social-map-section">
