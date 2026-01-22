@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JCSSO</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>:root{
+  --green:#2f7d32;
+  --blue:#2563eb;
+  --dark:#1f2937;
+  --border:#e5e7eb;
+  --white:#fff;
+}
+
+/* ===== TOP BAR ===== */
+.top-bar{
+  background:var(--green);
+  color:var(--white);
+}
+
+.top-container{
+  max-width:1400px;
+  margin:auto;
+  padding:20px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:15px;
+}
+
+.top-left{
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
+}
+
+.top-item a{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:var(--white);
+  text-decoration:none;
+}
+
+.icon-circle{
+  width:36px;
+  height:36px;
+  background:var(--white);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:0.3s;
+}
+
+.icon-circle i{
+  font-size:16px;
+  color:var(--blue);
+}
+
+.icon-circle:hover{
+  transform:scale(1.1);
+  box-shadow:0 4px 12px rgba(0,0,0,0.15);
+}
+
+.top-text strong{
+  display:block;
+  font-size:16px;
+}
+
+.top-text span{
+  font-size:13px;
+  opacity:.9;
+}
+
+.social{
+  display:flex;
+  gap:12px;
+}
+
+.social a{
+  width:36px;
+  height:36px;
+  background:var(--white);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--blue);
+  transition:0.3s;
+  text-decoration:none;
+}
+
+.social a:hover{
+  transform:scale(1.1);
+  background:var(--blue);
+  color:var(--white);
+}
+
+/* ===== HEADER ===== */
+.header{
+  border-bottom:5px solid var(--border);
+  background:var(--white);
+}
+
+.header-inner{
+  max-width:1400px;
+  margin:auto;
+  padding:20px 40px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:0px;
+}
+
+.brand img{
+  height:100px;
+}
+
+/* Menu */
+.menu{
+  list-style:none;
+  display:flex;
+  gap:25px;
+  margin:0;
+  padding:0;
+  flex-wrap:wrap;
+}
+
+.menu li{
+  position:relative;
+}
+
+.menu a{
+  text-decoration:none;
+  color:var(--dark);
+  font-size:15px;
+  padding:10px 12px;
+  font-weight:500;
+  border-radius:6px;
+  display:block;
+  transition:0.3s, transform 0.2s, box-shadow 0.2s;
+}
+
+.menu a:hover{
+  background:var(--green);
+  color:var(--white);
+  transform: translateY(-2px);
+  box-shadow:0 4px 12px rgba(0,0,0,0.15);
+}
+    .menu a.donate {
+  border: 1px solid var(--green); /* خط سبز دور دکمه */
+  color: var(--green);            /* رنگ متن سبز */
+  font-weight: 400;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.menu a.donate:hover {
+ 
+  color: var(--white);            /* متن سفید هنگام هاور */
+}
+
+
+/* Submenu */
+.submenu{
+  position:absolute;
+  top:100%;
+  left:0;
+  background:var(--white);
+  list-style:none;
+  padding:10px 0;
+  display:none;
+  box-shadow:0 10px 25px rgba(0,0,0,.12);
+  border-radius:6px;
+  min-width:180px;
+  z-index:100;
+}
+
+.submenu li a{
+  padding:10px 20px;
+  font-weight:500;
+}
+
+.submenu li a:hover{
+  background:var(--green);
+  color:var(--white);
+}
+
+.menu li:hover .submenu{
+  display:block;
+}
+
+/* Inline submenu */
+.submenu-inline {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--white);
+  padding: 10px;
+  display: none;
+  white-space: nowrap;
+  box-shadow: 0 10px 25px rgba(0,0,0,.12);
+  border-radius: 6px;
+  z-index: 100;
+}
+
+.submenu-inline a {
+  text-decoration: none;
+  color: var(--green);
+  margin: 0 8px;
+  font-weight: 600;
+}
+
+.menu li:hover .submenu-inline {
+  display: block;
+}
+
+.menu li:has(.submenu),
+.menu li:has(.submenu-inline) {
+  position: relative;
+}
+
+.menu li:has(.submenu) > a::after,
+.menu li:has(.submenu-inline) > a::after {
+  content: " ▼";
+  font-size: 12px;
+  color: var(--green);
+  margin-left: 6px;
+}
+
+/* Responsive */
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  color: var(--green);
+  cursor: pointer;
+  padding: 10px;
+}
+
+@media(max-width:768px){
+  .menu-toggle {
+    display: block;
+    text-align: center;
+    width: 100%;
+  }
+
+  .menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    align-items:center;
+  }
+
+  .menu.active {
+    display: flex;
+  }
+
+  .top-container, .header-inner{
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    gap:0px;
+  }
+}
+
+:root{
+  --green:#2f7d32;
+  --blue:#2563eb;
+  --dark:#1f2937;
+}
+
+/* ===== BODY ===== */
+body{
+  margin:0;
+  font-family:'Poppins', sans-serif;
+  color:var(--dark);
+}
+
+/* ===== HEADER IMAGE ===== */
+.header-image{
+  width:100%;
+  max-height:500px;
+  overflow:hidden;
+}
+
+.header-image img{
+  width:100%;
+  height:500px;
+  object-fit:cover;
+  display:block;
+}
+
+@media(max-width:768px){
+  .header-image img{
+    height:300px;
+  }
+}
+
+/* ========= ABOUT US ========= */
+.about-us{
+  max-width:1400px;
+  margin:auto;
+  padding:80px 30px;
+  display:flex;
+  align-items:center;
+  gap:40px;
+  flex-wrap:wrap;
+  background: linear-gradient(135deg, #f8fafc, #eef2f7);
+  border-radius:20px;
+}
+
+.about-us .about-left,
+.about-us .about-right{
+  flex:1;
+}
+
+.about-us img{
+  width:100%;
+  border-radius:8px;
+  object-fit:cover;
+}
+
+.about-us h2{
+  font-size:30px;
+  color:var(--blue);
+  margin-bottom:20px;
+  font-weight:600;
+}
+
+.about-us p{
+  font-size:16px;
+  line-height:1.8;
+}
+
+/* ========= BUTTONS ========= */
+.read-more-btn, .blue-more-btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--blue);
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  padding: 12px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin-top:20px;
+}
+
+.read-more-btn:hover, .blue-more-btn:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* ========= GALLERY ========= */
+.gallery-section{
+  max-width:1400px;
+  margin:auto;
+  padding:80px 30px;
+  background: linear-gradient(135deg, #f3f8f5, #e8f1ec);
+  border-radius:20px;
+}
+
+.gallery-section h2{
+  font-size:32px;
+  font-weight:600;
+  color:var(--blue);
+  margin-bottom:60px;
+  text-align:center;
+}
+
+.gallery{
+  display:flex;
+  gap:25px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+.gallery div{
+  flex:1 1 calc(25% - 25px);
+  max-width:300px;
+  overflow:hidden;
+  border-radius:8px;
+  transition:0.3s;
+}
+
+.gallery img{
+  width:100%;
+  aspect-ratio: 1 / 1;
+  object-fit:cover;
+  border-radius:8px;
+  transition: transform 0.6s, box-shadow 0.3s;
+}
+
+.gallery img:hover{
+  transform: scale(1.1);
+  box-shadow:0 6px 25px rgba(0,0,0,0.35);
+}
+
+/* ========= DONORS ========= */
+.donors-section{
+  max-width:1400px;
+  margin:auto;
+  padding:50px 80px;
+  text-align:center;
+  background-color:#ebf0ec;
+  border-radius:20px;
+}
+
+.donors-section h2{
+  font-size:32px;
+  font-weight:1000;
+  margin-bottom:100px;
+  color:#1f2937;
+}
+
+.donors-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap:50px;
+  justify-items:center;
+  align-items:center;
+}
+
+.donors-grid div{
+  border:3px solid #7b6262;
+  border-radius:30px;
+  padding:50px;
+  background:#fff;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.donors-grid div:hover{
+  transform: translateY(-5px);
+  box-shadow:0 6px 20px rgba(0,0,0,0.15);
+}
+
+.donors-grid img{
+  max-width:400%;
+  max-height:100px;
+  object-fit:contain;
+}
+
+/* ===== Responsive ===== */
+@media(max-width:1024px){
+  .gallery div{
+    flex:1 1 calc(50% - 25px);
+  }
+}
+
+@media(max-width:768px){
+  .gallery div{
+    flex:1 1 100%;
+    max-width:100%;
+  }
+  .about-us{
+    flex-direction:column;
+    padding:50px 20px;
+  }
+  .about-us .about-left,
+  .about-us .about-right{
+    flex:1 1 100%;
+  }
+  .about-us img{
+    max-width:100%;
+  }
+  .donors-section{
+    padding:40px 20px;
+  }
+}
+:root{
+  --green:#2f7d32;
+  --blue:#2563eb;
+  --dark:#1f2937;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  color:#333;
+}
+
+/* ================= FOOTER ================= */
+
+.site-footer{
+  background:#f4f7f3;
+  padding:60px 20px 25px;
+}
+
+.footer-container{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  gap:50px;
+  flex-wrap:wrap;
+}
+
+.site-footer h3{
+  font-size:17px;
+  font-weight:600;
+  margin-bottom:24px;
+  color:var(--dark);
+}
+
+/* CONTACT */
+.footer-contact{
+  flex:1 1 300px;
+}
+
+.contact-item{
+  margin-bottom:18px;
+}
+
+.contact-item a{
+  display:flex;
+  align-items:center;
+  text-decoration:none;
+  color:#374151;
+  font-size:15px;
+}
+
+.contact-item .icon{
+  width:44px;
+  height:44px;
+  background:var(--green);
+  color:#fff;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-right:15px;
+  transition:.3s;
+}
+
+.contact-item a:hover .icon{
+  background:var(--blue);
+  transform:scale(1.1);
+}
+
+/* LINKS */
+.footer-links{
+  flex:1 1 200px;
+}
+
+.footer-links ul{
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+
+.footer-links li{
+  margin-bottom:14px;
+}
+
+.footer-links a{
+  text-decoration:none;
+  color:#374151;
+  font-size:15px;
+  font-weight:500;
+  transition:.3s;
+}
+
+.footer-links a:hover{
+  color:var(--blue);
+}
+
+/* LOGO */
+.footer-logo{
+  flex:1 1 200px;
+}
+
+.footer-logo img{
+  max-width:180px;
+}
+
+/* BOTTOM */
+.footer-bottom{
+  margin-top:40px;
+  text-align:center;
+}
+
+.socials a{
+  margin:0 10px;
+  font-size:20px;
+  color:var(--green);
+  transition:.3s;
+}
+
+.socials a:hover{
+  color:var(--blue);
+}
+
+.footer-bottom p{
+  margin-top:15px;
+  font-size:14px;
+  color:#6b7280;
+  font-weight:400;
+}
+
+/* ========== RESPONSIVE ========== */
+@media(max-width:768px){
+  .footer-container{
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+  }
+
+  .contact-item a{
+    justify-content:center;
+  }
+
+  .footer-logo{
+    display:flex;
+    justify-content:center;
+  }
+}/* ===== HIDE HEADER LOGO ON MOBILE ===== */
+@media(max-width:768px){
+  .header .brand {
+    display: none;
+  }
+}
+@media(max-width:768px){
+  .footer-links {
+    display: none;
+  }
+}
+</style>
+</head>
+<body>
+    
+<!-- ========= TOP BAR ========= -->
+<div class="top-bar">
+  <div class="top-container">
+    <div class="top-left">
+      <div class="top-item">
+        <a href="mailto:mudabir@jcsso.org">
+          <div class="icon-circle"><i class="fas fa-envelope"></i></div>
+          <div class="top-text">
+            <strong>Email</strong>
+            <span>mudabir@jcsso.org</span>
+          </div>
+        </a>
+      </div>
+      <div class="top-item">
+        <a href="mailto:communication@jcsso.org">
+          <div class="icon-circle"><i class="fas fa-envelope"></i></div>
+          <div class="top-text">
+            <strong>Email</strong>
+            <span>communication@jcsso.org</span>
+          </div>
+        </a>
+      </div>
+      <div class="top-item">
+        <a href="tel:+93765110110">
+          <div class="icon-circle"><i class="fas fa-phone"></i></div>
+          <div class="top-text">
+            <strong>Phone</strong>
+            <span>+93 (0)765 110 110</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="social">
+      <a href="https://www.facebook.com/jcssongo/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+    </div>
+  </div>
+</div>
+
+<!-- ========= HEADER ========= -->
+<div class="header">
+  <div class="header-inner">
+    <div class="brand">
+      <img src="logo.png" alt="JCSSO">
+    </div>
+
+    <div class="menu-toggle" onclick="document.querySelector('.menu').classList.toggle('active')">
+      <i class="fas fa-bars"></i>
+    </div>
+
+    <ul class="menu">
+      <li><a href="#">Home</a></li>
+      <li>
+        <a href="#">About Us</a>
+        <ul class="submenu">
+          <li><a href="background.html">Background</a></li>
+          <li><a href="Goal.html">Goal</a></li>
+          <li><a href="mission.html">Mission</a></li>
+          <li><a href="Vision.html">Vision</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">Our Program</a>
+        <div class="submenu-inline">
+          <a href="#">Humanitarian Assistance</a> |
+          <a href="#">Capacity Building & Training</a> |
+          <a href="#">Emergency Response</a> |
+          <a href="#">Protection and Inclusion</a> |
+          <a href="#">Advocacy & Public Awareness</a> |
+          <a href="#">Education & Training</a> |
+          <a href="#">Justice and Civil Society Strengthening</a>
+        </div>
+      </li>
+      <li><a href="#">Implemented Project</a></li>
+      <li>
+        <a href="#">Publication</a>
+        <ul class="submenu">
+          <li><a href="#">Success Stories</a></li>
+          <li><a href="#">Annual Reports</a></li>
+          <li><a href="#">Activity Reports</a></li>
+        </ul>
+      </li>
+      <li><a href="Gallery.html">Gallery</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a href="#" class="donate">Donate</a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== HEADER IMAGE ===== -->
+<div class="header-image">
+  <img src="a scenic landscape o.png" alt="Header Image">
+</div>
+
+<!-- ========= ABOUT US ========= -->
+<div class="about-us">
+  <div class="about-left">
+    <img src="1.webp" alt="About Us">
+  </div>
+  <div class="about-right">
+    <h2>About Us</h2>
+    <p><strong>Introduction:</strong> Justice & Civil Society Support Organization (JCSSO) is a national non-governmental, non-profit, and non-political organization. JCSSO’s mandate is to seek a world of hope, tolerance and social justice; where poverty has been overcome and people live in dignity, justice and security. JCSSO was established/registered with Afghan Ministry of Economy in 2009 as NNGO. JCSSO puts people's rights, including humanitarian principles, values, transparency and accountability, at the center of all performances because we know that we cannot overcome poverty and social injustice until all people have equal rights and opportunities. JCSSO is aimed to tackle humanitarian crises, including droughts and disaster prevention, and develops basic community social services for youth, women, IDPs, and poor rural communities to reduce poverty and contribute to National Development Goals.</p>
+    <a href="background.html" class="read-more-btn">Read More</a>
+  </div>
+</div>
+
+<!-- ========= GALLERY ========= -->
+<div class="gallery-section">
+  <h2>Our Gallery</h2>
+  <div class="gallery">
+    <div><img src="2.webp" alt="Photo 1"></div>
+    <div><img src="5.webp" alt="Photo 2"></div>
+    <div><img src="۲.webp" alt="Photo 3"></div>
+    <div><img src="۴.webp" alt="Photo 4"></div>
+       <div><img src="۳.webp" alt="Photo 4"></div>
+  </div>
+  <div style="text-align:center; margin-top:30px;">
+    <a href="Gallery.html" class="blue-more-btn">Read More</a>
+  </div>
+</div>
+
+<!-- ========= DONORS AND PARTNERS ========= -->
+<div class="donors-section">
+  <h2>Our Donors and Partners</h2>
+  <div class="donors-grid">
+    <div><img src=",,,,,,,,,,,,,,,.jpg" alt="Donor 1"></div>
+    <div><img src=",,,,,,,,,.jpg
+
+" alt="Donor 2"></div>
+    <div><img src=",,,,,,,,.jpg" alt="Donor 3"></div>
+    <div><img src=",,,,,,,.jpg
+" alt="Donor 4"></div>
+    <div><img src=",,,,,,.jpg
+" alt="Donor 5"></div>
+    <div><img src=",,,,,.jpg
+" alt="Donor 6"></div>
+    <div><img src=",,,,.jpg
+" alt="Donor 7"></div>
+    <div><img src="6.jpg" alt="Donor 8"></div>
+  </div>
+</div>
+<footer class="site-footer">
+  <div class="footer-container">
+
+    <!-- Contact -->
+    <div class="footer-contact">
+      <h3>Contact Us</h3>
+
+      <div class="contact-item">
+        <a href="tel:+93765110110">
+          <div class="icon"><i class="fa-solid fa-phone-volume"></i></div>
+          <span>+93 765 110 110</span>
+        </a>
+      </div>
+
+      <div class="contact-item">
+        <a href="mailto:mudabir@jcsso.org">
+          <div class="icon"><i class="fa-solid fa-envelope-open-text"></i></div>
+          <span>mudabir@jcsso.org</span>
+        </a>
+      </div>
+
+      <div class="contact-item">
+        <a href="mailto:communication@jcsso.org">
+          <div class="icon"><i class="fa-solid fa-envelope-open-text"></i></div>
+          <span>communication@jcsso.org</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Links -->
+    <div class="footer-links">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="Gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Logo -->
+    <div class="footer-logo">
+      <img src="logo.png" alt="JCSSO Logo">
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <div class="socials">
+      <a href="https://www.facebook.com/jcssongo/"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="#"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://www.youtube.com/@jcssongo6279"><i class="fa-brands fa-youtube"></i></a>
+    </div>
+    <p>© Copyright 2026 JCSSO NGO. Powered By (S design).</p>
+  </div>
+</footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
