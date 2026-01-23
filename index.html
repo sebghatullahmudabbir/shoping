@@ -57,32 +57,12 @@ body{font-family:'Poppins', sans-serif;color:var(--dark);line-height:1.6;}
 .menu li:hover .submenu,.menu li:hover .submenu-inline{display:block;}
 .menu li:has(.submenu)::after,.menu li:has(.submenu-inline)::after{content:" ▼";font-size:10px;color:var(--green);margin-left:4px;}
 .menu-toggle{display:none;font-size:24px;color:var(--green);cursor:pointer;}
-
-/* ===== RESPONSIVE ===== */
 @media(max-width:768px){
   .menu-toggle{display:block;width:100%;text-align:center;}
   .menu{display:none;flex-direction:column;width:100%;align-items:center;}
   .menu.active{display:flex;}
   .top-container,.header-inner{flex-direction:column;align-items:center;text-align:center;}
   .header .brand{display:none;}
-
-  /* زیرمنو موبایل فعال */
-  .menu li .submenu,
-  .menu li .submenu-inline {
-    display: none;
-    position: relative;
-    top: 0;
-    left: 0;
-    flex-direction: column;
-    gap: 5px;
-    background: none;
-    padding: 0;
-    box-shadow: none;
-  }
-  .menu li .submenu.active,
-  .menu li .submenu-inline.active {
-    display: flex;
-  }
 }
 
 /* ===== HEADER IMAGE ===== */
@@ -114,7 +94,7 @@ body{font-family:'Poppins', sans-serif;color:var(--dark);line-height:1.6;}
 .social-box{background:#fff;border-radius:12px;padding:15px;box-shadow:0 6px 20px rgba(0,0,0,.1);}
 .social-box h3{text-align:center;margin-bottom:10px;color:var(--blue);}
 .social-box iframe{width:100%;border:0;border-radius:8px;}
-@media(max-width:1024px){.social-map-container{grid-template-columns:1fr;}}
+@media(max-width:1024px){.social-map-container{grid-template-columns:1fr;} }
 @media(max-width:600px){.social-box iframe{height:300px;}}
 
 /* ===== DONORS ===== */
@@ -144,12 +124,25 @@ body{font-family:'Poppins', sans-serif;color:var(--dark);line-height:1.6;}
 .socials a:hover{color:var(--blue);}
 .footer-bottom p{margin-top:10px;font-size:12px;color:#6b7280;}
 
-/* ===== RESPONSIVE GENERAL ===== */
+/* ===== RESPONSIVE ===== */
 @media(max-width:768px){
   .about-us{flex-direction:column;}
   .about-us .about-left,.about-us .about-right{flex:1 1 100%;}
   .gallery div{flex:1 1 100%;max-width:100%;}
   .footer-container{flex-direction:column;align-items:center;text-align:center;}
+}
+/* زیرمنو موبایل فعال */
+.menu li .submenu.active,
+.menu li .submenu-inline.active {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  position: relative;
+  top: 0;
+  left: 0;
+  box-shadow: none;
+  padding: 0;
+  background: none;
 }
 </style>
 </head>
@@ -312,19 +305,29 @@ document.addEventListener("DOMContentLoaded", function(){
   const menu = document.querySelector(".menu");
   const menuItems = document.querySelectorAll(".menu li");
 
-  // باز و بسته شدن کل منو در موبایل
   menuToggle.addEventListener("click", function(){
     menu.classList.toggle("active");
   });
 
-  // باز و بسته شدن زیرمنوها در موبایل
   menuItems.forEach(item => {
     const submenu = item.querySelector(".submenu, .submenu-inline");
-    if(submenu){
+    const link = item.querySelector("a");
+    if(submenu && link){
+      let clicked = false;
       item.addEventListener("click", function(e){
         if(window.innerWidth <= 768){
-          e.preventDefault(); // جلوگیری از رفتن به لینک
-          submenu.classList.toggle("active");
+          if(!clicked){
+            e.preventDefault(); // دفعه اول فقط باز کن
+            submenu.classList.add("active");
+            clicked = true;
+            document.addEventListener("click", function reset(e2){
+              if(!item.contains(e2.target)){
+                clicked = false;
+                submenu.classList.remove("active");
+                document.removeEventListener("click", reset);
+              }
+            });
+          }
         }
       });
     }
