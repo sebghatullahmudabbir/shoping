@@ -5,10 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>JCSSO</title>
 
-<!-- Preload فونت و لوگو -->
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" as="style">
-<link rel="preload" href="logo.png" as="image">
-
 <!-- فونت و آیکون -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
@@ -42,7 +38,7 @@ body{font-family:'Poppins', sans-serif;color:var(--dark);line-height:1.6;}
 
 /* ===== HEADER ===== */
 .header{border-bottom:3px solid var(--border);background:#fff;}
-.header-inner{max-width:1400px;margin:auto;padding:15px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:30px;}
+.header-inner{max-width:1400px;margin:auto;padding:15px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
 .brand img{height:80px;}
 .menu{list-style:none;display:flex;gap:40px;flex-wrap:wrap;}
 .menu li{position:relative;}
@@ -64,7 +60,7 @@ body{font-family:'Poppins', sans-serif;color:var(--dark);line-height:1.6;}
 }
 
 /* ===== HEADER IMAGE ===== */
-.header-image img{width:100%;height:400px;object-fit:cover;display:block;loading:eager;}
+.header-image img{width:100%;height:400px;object-fit:cover;display:block;}
 @media(max-width:768px){.header-image img{height:250px;}}
 
 /* ===== ABOUT US ===== */
@@ -170,18 +166,14 @@ body{font-family:'Poppins', sans-serif;color:var(--dark);line-height:1.6;}
           <li><a href="Vision.html">Vision</a></li>
         </ul>
       </li>
-  <li>
-  <a href="#">Our Program</a>
-  <div class="submenu-inline">
-    <a href="#">Humanitarian Assistance</a> |
-    <a href="#">Capacity Building & Training</a> |
-    <a href="#">Emergency Response</a> |
-    <a href="#">Protection and Inclusion</a> |
-    <a href="#">Advocacy & Public Awareness</a> |
-    <a href="#">Education & Training</a> |
-    <a href="#">Justice and Civil Society Strengthening</a>
-  </div>
-</li>
+      <li>
+        <a href="#">Our Program</a>
+        <div class="submenu-inline">
+          <a href="#">Humanitarian Assistance</a> |
+          <a href="#">Capacity Building & Training</a> |
+          <a href="#">Emergency Response</a>
+        </div>
+      </li>
       <li><a href="#">Implemented Project</a></li>
       <li>
         <a href="#">Publication</a>
@@ -199,16 +191,14 @@ body{font-family:'Poppins', sans-serif;color:var(--dark);line-height:1.6;}
 </div>
 
 <!-- HEADER IMAGE -->
-<div class="header-image">
-  <img src="header.png" alt="Header Image" loading="eager">
-</div>
+<div class="header-image"><img src="a scenic landscape o.png" alt="Header Image" loading="lazy"></div>
 
 <!-- ABOUT US -->
 <div class="about-us">
-  <div class="about-left"><img src="about1.webp" alt="About Us" loading="lazy"></div>
+  <div class="about-left"><img src="1.webp" alt="About Us" loading="lazy"></div>
   <div class="about-right">
     <h2>About Us</h2>
-    <p><strong>Introduction:</strong> Justice & Civil Society Support Organization (JCSSO) is a national non-governmental, non-profit, and non-political organization. JCSSO’s mandate is to seek a world of hope, tolerance, and social justice...</p>
+    <p><strong>Introduction:</strong> Introduction: Justice & Civil Society Support Organization (JCSSO) is a national non-governmental, non-profit, and non-political organization JCSSO’s mandate is to seek a world of hope, tolerance and social justice; where poverty has been overcome and people live in dignity, justice and security. JCSSO stablished/registered with Afghan ministry of economy in 2009 as NNGO. JCSSO puts people rights including humanitarian principle, values, transparency and accountability in the center of all performances because we know that we cannot overcome poverty and social injustice until all people have no equal rights and opportunities JCSSO is aimed to tackle the humanitarian crisis including droughts and disaster prevention and develops community basic social Services needs for the Youth, Women, IDPs and poor rural community to reduce the level of poverty and contribute National Development Goals.</p>
     <a href="background.html" class="read-more-btn">Read More</a>
   </div>
 </div>
@@ -217,10 +207,11 @@ body{font-family:'Poppins', sans-serif;color:var(--dark);line-height:1.6;}
 <div class="gallery-section">
   <h2>Our Gallery</h2>
   <div class="gallery">
-    <div><img src="gallery1.webp" alt="Photo 1" loading="lazy"></div>
-    <div><img src="gallery2.webp" alt="Photo 2" loading="lazy"></div>
-    <div><img src="gallery3.webp" alt="Photo 3" loading="lazy"></div>
-    <div><img src="gallery4.webp" alt="Photo 4" loading="lazy"></div>
+    <div><img src="1.webp" alt="Photo 1" loading="lazy"></div>
+    <div><img src="2.webp" alt="Photo 2" loading="lazy"></div>
+    <div><img src="۲.webp" alt="Photo 3" loading="lazy"></div>
+    <div><img src=".webp" alt="Photo 4" loading="lazy"></div>
+
   </div>
   <div style="text-align:center; margin-top:15px;"><a href="Gallery.html" class="blue-more-btn">Read More</a></div>
 </div>
@@ -230,8 +221,20 @@ body{font-family:'Poppins', sans-serif;color:var(--dark);line-height:1.6;}
   <div class="social-map-container">
     <div class="social-box">
       <h3>Social Media</h3>
-      <div id="fb-container"></div>
-      <button onclick="loadFacebook()" class="blue-more-btn">Load Facebook Feed</button>
+      <!-- iframe فیس‌بوک همیشه لود می‌شود -->
+      <div id="fb-container">
+        <iframe 
+          src="https://www.facebook.com/plugins/page.php?href=https://www.facebook.com/jcssongo/&tabs=timeline&width=500&height=400&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" 
+          width="100%" 
+          height="400" 
+          style="border:none;overflow:hidden;border-radius:8px;" 
+          scrolling="no" 
+          frameborder="0" 
+          allowfullscreen="true" 
+          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+        </iframe>
+      </div>
+      <button onclick="refreshFacebook()" class="blue-more-btn">Refresh Facebook Feed</button>
     </div>
     <div class="social-box">
       <h3>Afghanistan Map</h3>
@@ -241,18 +244,23 @@ body{font-family:'Poppins', sans-serif;color:var(--dark);line-height:1.6;}
 </section>
 
 <!-- DONORS -->
+<!-- DONORS SECTION -->
+<!-- DONORS SECTION -->
 <div class="donors-section">
   <h2>Our Donors and Partners</h2>
   <div class="donors-grid">
-    <div><img src="donor1.jpg" alt="Donor 1" loading="lazy"></div>
-    <div><img src="donor2.jpg" alt="Donor 2" loading="lazy"></div>
-    <div><img src="donor3.jpg" alt="Donor 3" loading="lazy"></div>
-    <div><img src="donor4.jpg" alt="Donor 4" loading="lazy"></div>
-    <div><img src="donor5.jpg" alt="Donor 5" loading="lazy"></div>
-    <div><img src="donor6.jpg" alt="Donor 6" loading="lazy"></div>
-    <div><img src="donor7.jpg" alt="Donor 7" loading="lazy"></div>
+    <div><img src="doner1.jpg" alt="Donor 1" loading="lazy"></div>
+    <div><img src="doner2.jpg" alt="Donor 2" loading="lazy"></div>
+    <div><img src="doner3.jpg" alt="Donor 3" loading="lazy"></div>
+    <div><img src="doner4.jpg" alt="Donor 4" loading="lazy"></div>
+    <div><img src="doner5.jpg" alt="Donor 5" loading="lazy"></div>
+    <div><img src="doner6.jpg" alt="Donor 6" loading="lazy"></div>
+    <div><img src="doner7.jpg" alt="Donor 7" loading="lazy"></div>
+
   </div>
 </div>
+
+
 
 <!-- FOOTER -->
 <footer class="site-footer">
@@ -264,4 +272,41 @@ body{font-family:'Poppins', sans-serif;color:var(--dark);line-height:1.6;}
       <div class="contact-item"><a href="mailto:communication@jcsso.org"><div class="icon"><i class="fa-solid fa-envelope-open-text"></i></div>communication@jcsso.org</a></div>
     </div>
     <div class="footer-links">
-      <h3>Quick Links</h3
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="Gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-logo"><img src="logo.png" alt="JCSSO Logo"></div>
+  </div>
+  <div class="footer-bottom">
+    <div class="socials">
+      <a href="https://www.facebook.com/jcssongo/"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="#"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://www.youtube.com/@jcssongo6279"><i class="fa-brands fa-youtube"></i></a>
+    </div>
+    <p>© Copyright 2026 JCSSO NGO. Powered By (S design).</p>
+  </div>
+</footer>
+
+<script>
+function refreshFacebook() {
+  const container = document.getElementById("fb-container");
+  container.innerHTML = `<iframe 
+    src="https://www.facebook.com/plugins/page.php?href=https://www.facebook.com/jcssongo/&tabs=timeline&width=500&height=400&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" 
+    width="100%" 
+    height="400" 
+    style="border:none;overflow:hidden;border-radius:8px;" 
+    scrolling="no" 
+    frameborder="0" 
+    allowfullscreen="true" 
+    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+  </iframe>`;
+}
+</script>
+
+</body>
+</html>
