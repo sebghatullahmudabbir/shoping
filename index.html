@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>JCSSO</title>
 
-<!-- ✅ فقط تصویر هدر (LCP) -->
-<link rel="preload" as="image" href="a scenic landscape o.webp" fetchpriority="high">
+<!-- ✅ فقط LCP -->
+<link rel="preload" as="image" href="a scenic landscape o.png" fetchpriority="high">
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,67 +21,97 @@
   --blue:#2563eb;
   --dark:#1f2937;
   --border:#e5e7eb;
+  --white:#fff;
 }
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Poppins,sans-serif;color:var(--dark);line-height:1.6}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Poppins',sans-serif;color:var(--dark);line-height:1.6}
 
 /* TOP BAR */
 .top-bar{background:var(--green);color:#fff}
-.top-container{max-width:1400px;margin:auto;padding:12px;display:flex;justify-content:space-between;flex-wrap:wrap}
+.top-container{max-width:1400px;margin:auto;padding:15px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 .top-left{display:flex;gap:15px;flex-wrap:wrap}
-.top-item a{color:#fff;text-decoration:none;display:flex;gap:6px;align-items:center}
+.top-item a{display:flex;gap:8px;align-items:center;color:#fff;text-decoration:none}
+.icon-circle{width:32px;height:32px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.icon-circle i{color:var(--blue);font-size:14px}
+.social{display:flex;gap:10px}
+.social a{width:32px;height:32px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--blue)}
 
 /* HEADER */
-.header{background:#fff;border-bottom:2px solid var(--border)}
-.header-inner{max-width:1400px;margin:auto;padding:15px;display:flex;align-items:center;justify-content:space-between}
-.brand img{height:70px}
-.menu{list-style:none;display:flex;gap:35px}
-.menu a{text-decoration:none;color:var(--dark);font-weight:500}
-.menu-toggle{display:none;font-size:24px;cursor:pointer;color:var(--green)}
-
-.submenu{display:none;position:absolute;background:#fff;box-shadow:0 10px 25px rgba(0,0,0,.1);padding:10px;border-radius:6px}
+.header{background:#fff;border-bottom:3px solid var(--border)}
+.header-inner{max-width:1400px;margin:auto;padding:15px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.brand img{height:80px}
+.menu{list-style:none;display:flex;gap:40px;flex-wrap:wrap}
 .menu li{position:relative}
-.menu li:hover .submenu{display:block}
+.menu a{text-decoration:none;color:var(--dark);font-size:14px;font-weight:500;padding:8px 10px;border-radius:6px}
+.menu a:hover{background:var(--green);color:#fff}
+.submenu,.submenu-inline{
+  position:absolute;top:100%;left:0;
+  background:#fff;padding:10px;
+  display:none;white-space:nowrap;
+  box-shadow:0 10px 25px rgba(0,0,0,.12);
+  border-radius:6px;z-index:100
+}
+.menu li:hover .submenu,
+.menu li:hover .submenu-inline{display:block}
+.menu-toggle{display:none;font-size:24px;color:var(--green);cursor:pointer}
 
 @media(max-width:768px){
-  .menu{display:none;flex-direction:column}
+  .menu-toggle{display:block;width:100%;text-align:center}
+  .menu{display:none;flex-direction:column;width:100%;align-items:center}
   .menu.active{display:flex}
-  .menu-toggle{display:block}
+  .top-container,.header-inner{flex-direction:column;text-align:center}
   .brand{display:none}
 }
 
-/* HERO */
+/* HEADER IMAGE */
 .header-image img{
   width:100%;
   height:400px;
   object-fit:cover;
   display:block;
 }
+@media(max-width:768px){
+  .header-image img{height:250px}
+}
 
 /* ABOUT */
-.about-us{max-width:1400px;margin:auto;padding:50px 20px;display:flex;gap:30px;background:#eef2f7;border-radius:15px}
-.about-us img{width:100%;border-radius:8px}
-@media(max-width:768px){.about-us{flex-direction:column}}
+.about-us{
+  max-width:1400px;margin:auto;
+  padding:50px 20px;
+  display:flex;gap:30px;
+  background:#eef2f7;border-radius:15px;flex-wrap:wrap
+}
+.about-us img{width:100%;border-radius:8px;object-fit:cover}
+.about-us h2{color:var(--blue);margin-bottom:15px}
+.read-more-btn{display:inline-block;background:var(--blue);color:#fff;padding:10px 20px;border-radius:6px;text-decoration:none;margin-top:15px}
 
 /* GALLERY */
-.gallery-section{padding:50px 20px;background:#f3f8f5}
-.gallery{display:flex;flex-wrap:wrap;gap:15px;justify-content:center}
-.gallery img{width:300px;height:300px;object-fit:cover;border-radius:8px}
+.gallery-section{max-width:1400px;margin:auto;padding:50px 20px;background:#f3f8f5;border-radius:15px}
+.gallery{display:flex;gap:15px;flex-wrap:wrap;justify-content:center}
+.gallery div{flex:1 1 calc(25% - 15px);max-width:300px}
+.gallery img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:8px}
 
-/* SOCIAL */
-.social-map-section{padding:50px 20px;background:#eef2f7}
+/* SOCIAL + MAP */
+.social-map-section{background:#eef2f7;padding:50px 20px}
 .social-map-container{max-width:1400px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:20px}
-@media(max-width:1024px){.social-map-container{grid-template-columns:1fr}}
+.social-box{background:#fff;padding:15px;border-radius:12px}
+@media(max-width:1024px){
+  .social-map-container{grid-template-columns:1fr}
+}
 
 /* DONORS */
-.donors-section{padding:50px 20px;background:#ebf0ec}
+.donors-section{max-width:1400px;margin:auto;padding:50px 20px;background:#ebf0ec;border-radius:15px}
 .donors-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:20px}
-.donors-grid img{width:100%;height:120px;object-fit:contain}
+.donors-grid img{max-width:100%;max-height:160px;object-fit:contain}
 
 /* FOOTER */
 .site-footer{background:#f4f7f3;padding:40px 20px}
-.footer-container{max-width:1200px;margin:auto;display:flex;gap:20px;flex-wrap:wrap}
-@media(max-width:768px){.footer-container{flex-direction:column;text-align:center}}
+.footer-container{max-width:1200px;margin:auto;display:flex;gap:20px;flex-wrap:wrap;justify-content:space-between}
+.footer-container > div{flex:1}
+.footer-bottom{text-align:center;margin-top:20px}
+@media(max-width:768px){
+  .footer-container{flex-direction:column;text-align:center}
+}
 </style>
 </head>
 
@@ -91,96 +121,134 @@ body{font-family:Poppins,sans-serif;color:var(--dark);line-height:1.6}
 <div class="top-bar">
   <div class="top-container">
     <div class="top-left">
-      <div class="top-item"><a href="mailto:mudabir@jcsso.org"><i class="fas fa-envelope"></i> mudabir@jcsso.org</a></div>
-      <div class="top-item"><a href="tel:+93765110110"><i class="fas fa-phone"></i> +93 765 110 110</a></div>
+      <div class="top-item">
+        <a href="mailto:mudabir@jcsso.org">
+          <div class="icon-circle"><i class="fas fa-envelope"></i></div>
+          mudabir@jcsso.org
+        </a>
+      </div>
+      <div class="top-item">
+        <a href="tel:+93765110110">
+          <div class="icon-circle"><i class="fas fa-phone"></i></div>
+          +93 765 110 110
+        </a>
+      </div>
+    </div>
+    <div class="social">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
     </div>
   </div>
 </div>
 
 <!-- HEADER -->
-<header class="header">
+<div class="header">
   <div class="header-inner">
-    <div class="brand"><img src="logo.webp" alt="JCSSO"></div>
+    <div class="brand"><img src="logo.png" alt="JCSSO"></div>
     <div class="menu-toggle"><i class="fas fa-bars"></i></div>
     <ul class="menu">
       <li><a href="index.html">Home</a></li>
       <li>
-        <a href="about.html">About</a>
+        <a href="about.html">About Us</a>
         <ul class="submenu">
           <li><a href="background.html">Background</a></li>
+          <li><a href="goal.html">Goal</a></li>
           <li><a href="mission.html">Mission</a></li>
+          <li><a href="vision.html">Vision</a></li>
         </ul>
       </li>
-      <li><a href="program.html">Program</a></li>
-      <li><a href="projects.html">Projects</a></li>
+      <li>
+        <a href="program.html">Our Program</a>
+        <div class="submenu-inline">
+          <a href="#">Humanitarian Assistance</a>
+          <a href="#">Capacity Building & Training</a>
+          <a href="#">Emergency Response</a>
+        </div>
+      </li>
+      <li><a href="projects.html">Implemented Project</a></li>
       <li><a href="gallery.html">Gallery</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </div>
-</header>
+</div>
 
 <!-- HERO -->
 <div class="header-image">
-  <img src="a scenic landscape o.webp" width="1920" height="400" alt="JCSSO">
+  <img src="a scenic landscape o.png" alt="Header" width="1920" height="400">
 </div>
 
 <!-- ABOUT -->
-<section class="about-us">
-  <div><img src="1.webp" loading="lazy" decoding="async"></div>
-  <div>
-    <h2>About Us</h2>
-    <p>Justice & Civil Society Support Organization (JCSSO) is a national NGO...</p>
+<div class="about-us">
+  <div style="flex:1">
+    <img src="1.webp" loading="lazy" decoding="async">
   </div>
-</section>
+  <div style="flex:1">
+    <h2>About Us</h2>
+    <p>Justice & Civil Society Support Organization (JCSSO)...</p>
+    <a href="background.html" class="read-more-btn">Read More</a>
+  </div>
+</div>
 
 <!-- GALLERY -->
-<section class="gallery-section">
+<div class="gallery-section">
   <div class="gallery">
-    <img src="1.webp" loading="lazy">
-    <img src="2.webp" loading="lazy">
-    <img src="3.webp" loading="lazy">
-    <img src="4.webp" loading="lazy">
+    <div><img src="1.webp" loading="lazy"></div>
+    <div><img src="2.webp" loading="lazy"></div>
+    <div><img src="3.webp" loading="lazy"></div>
+    <div><img src="4.webp" loading="lazy"></div>
   </div>
-</section>
+</div>
 
 <!-- SOCIAL -->
 <section class="social-map-section">
   <div class="social-map-container">
-    <div>
-      <button id="loadFb">Load Facebook</button>
-      <div id="fbBox"></div>
+    <div class="social-box">
+      <iframe loading="lazy"
+        src="https://www.facebook.com/plugins/page.php?href=https://www.facebook.com/jcssongo/"
+        width="100%" height="400" style="border:none"></iframe>
     </div>
-    <iframe loading="lazy" src="https://www.google.com/maps/embed?pb=..." width="100%" height="400"></iframe>
+    <div class="social-box">
+      <iframe loading="lazy"
+        src="https://www.google.com/maps/embed?pb=..."
+        width="100%" height="400"></iframe>
+    </div>
   </div>
 </section>
 
 <!-- DONORS -->
-<section class="donors-section">
+<div class="donors-section">
   <div class="donors-grid">
-    <img src="doner1.webp" loading="lazy">
-    <img src="doner2.webp" loading="lazy">
-    <img src="doner3.webp" loading="lazy">
-    <img src="doner4.webp" loading="lazy">
+    <img src="doner1.jpg" loading="lazy">
+    <img src="doner2.jpg" loading="lazy">
+    <img src="doner3.jpg" loading="lazy">
+    <img src="doner4.jpg" loading="lazy">
   </div>
-</section>
+</div>
 
 <!-- FOOTER -->
 <footer class="site-footer">
   <div class="footer-container">
-    <div>© 2026 JCSSO</div>
+    <div>
+      <h3>Contact</h3>
+      <p>Kabul, Afghanistan</p>
+    </div>
+    <div>
+      <h3>Quick Links</h3>
+      <p>Home | About | Contact</p>
+    </div>
+    <div>
+      <img src="logo.png" width="120">
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2026 JCSSO
   </div>
 </footer>
 
 <script>
-document.querySelector('.menu-toggle')
-.onclick=()=>document.querySelector('.menu').classList.toggle('active');
-
-document.getElementById('loadFb').onclick=()=>{
- document.getElementById('fbBox').innerHTML=
- `<iframe loading="lazy"
- src="https://www.facebook.com/plugins/page.php?href=https://www.facebook.com/jcssongo/"
- width="100%" height="400" style="border:none"></iframe>`;
-};
+const menuToggle=document.querySelector('.menu-toggle');
+const menu=document.querySelector('.menu');
+menuToggle.onclick=()=>menu.classList.toggle('active');
 </script>
 
 </body>
