@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,15 +6,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>JCSSO</title>
 
-<!-- ✅ فقط LCP -->
+<!-- PRELOAD IMAGES -->
 <link rel="preload" as="image" href="a scenic landscape o.png" fetchpriority="high">
+<link rel="preload" as="image" href="1.webp">
+<link rel="preload" as="image" href="2.webp">
+<link rel="preload" as="image" href="3.webp">
+<link rel="preload" as="image" href="4.webp">
+<link rel="preload" as="image" href="doner1.jpg">
+<link rel="preload" as="image" href="doner2.jpg">
+<link rel="preload" as="image" href="doner3.jpg">
+<link rel="preload" as="image" href="doner4.jpg">
+<link rel="preload" as="image" href="doner5.jpg">
+<link rel="preload" as="image" href="doner6.jpg">
+<link rel="preload" as="image" href="doner7.jpg">
+<link rel="preload" as="image" href="logo.png">
 
-<!-- Fonts -->
+<!-- PRELOAD FONT -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 :root{
@@ -23,98 +36,126 @@
   --border:#e5e7eb;
   --white:#fff;
 }
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Poppins',sans-serif;color:var(--dark);line-height:1.6}
+/* RESET */
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Poppins', sans-serif;color:var(--dark);line-height:1.6;}
 
 /* TOP BAR */
-.top-bar{background:var(--green);color:#fff}
-.top-container{max-width:1400px;margin:auto;padding:15px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
-.top-left{display:flex;gap:15px;flex-wrap:wrap}
-.top-item a{display:flex;gap:8px;align-items:center;color:#fff;text-decoration:none}
-.icon-circle{width:32px;height:32px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center}
-.icon-circle i{color:var(--blue);font-size:14px}
-.social{display:flex;gap:10px}
-.social a{width:32px;height:32px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--blue)}
+.top-bar{background:var(--green);color:var(--white);}
+.top-container{max-width:1400px;margin:auto;padding:15px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.top-left{display:flex;flex-wrap:wrap;gap:15px;}
+.top-item a{display:flex;align-items:center;gap:8px;color:var(--white);text-decoration:none;}
+.icon-circle{width:32px;height:32px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:0.3s;}
+.icon-circle i{color:var(--blue);font-size:14px;}
+.icon-circle:hover{transform:scale(1.1);box-shadow:0 4px 12px rgba(0,0,0,0.15);}
+.top-text strong{font-size:14px;display:block;}
+.top-text span{font-size:12px;opacity:.9;}
+.social{display:flex;gap:10px;}
+.social a{width:32px;height:32px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--blue);transition:0.3s;text-decoration:none;}
+.social a:hover{transform:scale(1.1);background:var(--blue);color:#fff;}
 
 /* HEADER */
-.header{background:#fff;border-bottom:3px solid var(--border)}
-.header-inner{max-width:1400px;margin:auto;padding:15px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap}
-.brand img{height:80px}
-.menu{list-style:none;display:flex;gap:40px;flex-wrap:wrap}
-.menu li{position:relative}
-.menu a{text-decoration:none;color:var(--dark);font-size:14px;font-weight:500;padding:8px 10px;border-radius:6px}
-.menu a:hover{background:var(--green);color:#fff}
-.submenu,.submenu-inline{
-  position:absolute;top:100%;left:0;
-  background:#fff;padding:10px;
-  display:none;white-space:nowrap;
-  box-shadow:0 10px 25px rgba(0,0,0,.12);
-  border-radius:6px;z-index:100
-}
-.menu li:hover .submenu,
-.menu li:hover .submenu-inline{display:block}
-.menu-toggle{display:none;font-size:24px;color:var(--green);cursor:pointer}
-
+.header{border-bottom:3px solid var(--border);background:#fff;}
+.header-inner{max-width:1400px;margin:auto;padding:15px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.brand img{height:80px;}
+.menu{list-style:none;display:flex;gap:40px;flex-wrap:wrap;}
+.menu li{position:relative;}
+.menu a{text-decoration:none;color:var(--dark);font-size:14px;padding:8px 10px;font-weight:500;border-radius:6px;display:block;transition:0.3s;}
+.menu a:hover{background:var(--green);color:#fff;transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,0.15);}
+.menu a.donate{border:1px solid var(--green);color:var(--green);padding:8px 15px;border-radius:6px;}
+.menu a.donate:hover{color:#fff;background:var(--green);}
+.submenu,.submenu-inline{position:absolute;top:100%;left:0;background:#fff;padding:10px;display:none;white-space:nowrap;box-shadow:0 10px 25px rgba(0,0,0,.12);border-radius:6px;z-index:100;}
+.submenu li a,.submenu-inline a{padding:8px 12px;font-weight:500;color:var(--green);}
+.menu li:hover .submenu,.menu li:hover .submenu-inline{display:block;}
+.menu li:has(.submenu)::after,.menu li:has(.submenu-inline)::after{content:" ▼";font-size:10px;color:var(--green);margin-left:4px;}
+.menu-toggle{display:none;font-size:24px;color:var(--green);cursor:pointer;}
 @media(max-width:768px){
-  .menu-toggle{display:block;width:100%;text-align:center}
-  .menu{display:none;flex-direction:column;width:100%;align-items:center}
-  .menu.active{display:flex}
-  .top-container,.header-inner{flex-direction:column;text-align:center}
-  .brand{display:none}
+  .menu-toggle{display:block;width:100%;text-align:center;}
+  .menu{display:none;flex-direction:column;width:100%;align-items:center;}
+  .menu.active{display:flex;}
+  .top-container,.header-inner{flex-direction:column;align-items:center;text-align:center;}
+  .header .brand{display:none;}
 }
 
 /* HEADER IMAGE */
-.header-image img{
-  width:100%;
-  height:400px;
-  object-fit:cover;
-  display:block;
-}
-@media(max-width:768px){
-  .header-image img{height:250px}
-}
+.header-image img{width:100%;height:400px;object-fit:cover;display:block;}
+@media(max-width:768px){.header-image img{height:250px;}}
 
-/* ABOUT */
-.about-us{
-  max-width:1400px;margin:auto;
-  padding:50px 20px;
-  display:flex;gap:30px;
-  background:#eef2f7;border-radius:15px;flex-wrap:wrap
-}
-.about-us img{width:100%;border-radius:8px;object-fit:cover}
-.about-us h2{color:var(--blue);margin-bottom:15px}
-.read-more-btn{display:inline-block;background:var(--blue);color:#fff;padding:10px 20px;border-radius:6px;text-decoration:none;margin-top:15px}
+/* ABOUT US */
+.about-us{max-width:1400px;margin:auto;padding:50px 20px;display:flex;align-items:center;gap:30px;flex-wrap:wrap;background:#eef2f7;border-radius:15px;}
+.about-us .about-left,.about-us .about-right{flex:1;}
+.about-us img{width:100%;border-radius:8px;object-fit:cover;}
+.about-us h2{font-size:24px;color:var(--blue);margin-bottom:15px;font-weight:600;}
+.about-us p{font-size:14px;}
+.read-more-btn{display:inline-flex;align-items:center;justify-content:center;background:var(--blue);color:#fff;padding:10px 20px;border-radius:6px;text-decoration:none;margin-top:15px;transition:0.2s;}
+.read-more-btn:hover{transform:translateY(-1px);box-shadow:0 4px 10px rgba(0,0,0,0.15);}
 
 /* GALLERY */
-.gallery-section{max-width:1400px;margin:auto;padding:50px 20px;background:#f3f8f5;border-radius:15px}
-.gallery{display:flex;gap:15px;flex-wrap:wrap;justify-content:center}
-.gallery div{flex:1 1 calc(25% - 15px);max-width:300px}
-.gallery img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:8px}
+.gallery-section{max-width:1400px;margin:auto;padding:50px 20px;background:#f3f8f5;border-radius:15px;}
+.gallery-section h2{text-align:center;font-size:28px;color:var(--blue);margin-bottom:40px;}
+.gallery{display:flex;gap:15px;flex-wrap:wrap;justify-content:center;}
+.gallery div{flex:1 1 calc(25% - 15px);max-width:300px;overflow:hidden;border-radius:8px;}
+.gallery img{width:100%;aspect-ratio:1/1;object-fit:cover;transition:transform 0.5s,box-shadow 0.3s;}
+.gallery img:hover{transform:scale(1.05);box-shadow:0 4px 15px rgba(0,0,0,0.2);}
+.blue-more-btn{display:inline-block;background:var(--blue);color:#fff;padding:10px 20px;border-radius:6px;text-decoration:none;margin-top:15px;transition:0.2s;}
+.blue-more-btn:hover{transform:translateY(-1px);box-shadow:0 4px 10px rgba(0,0,0,0.2);}
 
 /* SOCIAL + MAP */
-.social-map-section{background:#eef2f7;padding:50px 20px}
-.social-map-container{max-width:1400px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.social-box{background:#fff;padding:15px;border-radius:12px}
-@media(max-width:1024px){
-  .social-map-container{grid-template-columns:1fr}
-}
+.social-map-section{background:#eef2f7;padding:50px 20px;}
+.social-map-container{max-width:1400px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.social-box{background:#fff;border-radius:12px;padding:15px;box-shadow:0 6px 20px rgba(0,0,0,.1);}
+.social-box h3{text-align:center;margin-bottom:10px;color:var(--blue);}
+.social-box iframe{width:100%;border:0;border-radius:8px;}
+@media(max-width:1024px){.social-map-container{grid-template-columns:1fr;}}
 
 /* DONORS */
-.donors-section{max-width:1400px;margin:auto;padding:50px 20px;background:#ebf0ec;border-radius:15px}
-.donors-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:20px}
-.donors-grid img{max-width:100%;max-height:160px;object-fit:contain}
+.donors-section{max-width:1400px;margin:auto;padding:50px 20px;text-align:center;background:#ebf0ec;border-radius:15px;}
+.donors-section h2{font-size:28px;color:var(--dark);margin-bottom:50px;}
+.donors-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:20px;justify-items:center;align-items:center;}
+.donors-grid div{background:#fff;padding:20px;border-radius:15px;transition:0.3s;}
+.donors-grid div:hover{transform:translateY(-3px);box-shadow:0 4px 12px rgba(0,0,0,0.1);}
+.donors-grid img{max-width:100%;max-height:160px;object-fit:contain;}
 
 /* FOOTER */
-.site-footer{background:#f4f7f3;padding:40px 20px}
-.footer-container{max-width:1200px;margin:auto;display:flex;gap:20px;flex-wrap:wrap;justify-content:space-between}
-.footer-container > div{flex:1}
-.footer-bottom{text-align:center;margin-top:20px}
+.site-footer{background:#f4f7f3;padding:40px 20px;}
+.footer-container{max-width:1200px;margin:auto;display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;}
+.footer-contact,.footer-links,.footer-logo{flex:1;}
+.footer-contact h3,.footer-links h3{font-size:16px;margin-bottom:15px;color:var(--dark);}
+.contact-item{margin-bottom:10px;}
+.contact-item a{display:flex;align-items:center;text-decoration:none;color:#374151;font-size:14px;}
+.contact-item .icon{width:36px;height:36px;background:var(--green);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-right:10px;transition:0.3s;}
+.contact-item a:hover .icon{background:var(--blue);transform:scale(1.1);}
+.footer-links ul{list-style:none;}
+.footer-links li{margin-bottom:10px;}
+.footer-links a{color:#374151;text-decoration:none;font-weight:500;transition:0.3s;}
+.footer-links a:hover{color:var(--blue);}
+.footer-logo img{max-width:150px;}
+.footer-bottom{text-align:center;margin-top:20px;}
+.socials a{margin:0 8px;color:var(--green);transition:0.3s;font-size:18px;}
+.socials a:hover{color:var(--blue);}
+
 @media(max-width:768px){
-  .footer-container{flex-direction:column;text-align:center}
+  .about-us{flex-direction:column;}
+  .about-us .about-left,.about-us .about-right{flex:1 1 100%;}
+  .gallery div{flex:1 1 100%;max-width:100%;}
+  .footer-container{flex-direction:column;align-items:center;text-align:center;}
+}
+
+/* زیرمنو موبایل فعال */
+.menu li .submenu.active,
+.menu li .submenu-inline.active {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  position: relative;
+  top: 0;
+  left: 0;
+  box-shadow: none;
+  padding: 0;
+  background: none;
 }
 </style>
 </head>
-
 <body>
 
 <!-- TOP BAR -->
@@ -122,20 +163,17 @@ body{font-family:'Poppins',sans-serif;color:var(--dark);line-height:1.6}
   <div class="top-container">
     <div class="top-left">
       <div class="top-item">
-        <a href="mailto:mudabir@jcsso.org">
-          <div class="icon-circle"><i class="fas fa-envelope"></i></div>
-          mudabir@jcsso.org
-        </a>
+        <a href="mailto:mudabir@jcsso.org"><div class="icon-circle"><i class="fas fa-envelope"></i></div><div class="top-text"><strong>Email</strong><span>mudabir@jcsso.org</span></div></a>
       </div>
       <div class="top-item">
-        <a href="tel:+93765110110">
-          <div class="icon-circle"><i class="fas fa-phone"></i></div>
-          +93 765 110 110
-        </a>
+        <a href="mailto:communication@jcsso.org"><div class="icon-circle"><i class="fas fa-envelope"></i></div><div class="top-text"><strong>Email</strong><span>communication@jcsso.org</span></div></a>
+      </div>
+      <div class="top-item">
+        <a href="tel:+93765110110"><div class="icon-circle"><i class="fas fa-phone"></i></div><div class="top-text"><strong>Phone</strong><span>+93 765 110 110</span></div></a>
       </div>
     </div>
     <div class="social">
-      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.facebook.com/jcssongo/" target="_blank"><i class="fab fa-facebook-f"></i></a>
       <a href="#"><i class="fab fa-twitter"></i></a>
     </div>
   </div>
@@ -152,103 +190,161 @@ body{font-family:'Poppins',sans-serif;color:var(--dark);line-height:1.6}
         <a href="about.html">About Us</a>
         <ul class="submenu">
           <li><a href="background.html">Background</a></li>
-          <li><a href="goal.html">Goal</a></li>
+          <li><a href="Goal.html">Goal</a></li>
           <li><a href="mission.html">Mission</a></li>
-          <li><a href="vision.html">Vision</a></li>
+          <li><a href="Vision.html">Vision</a></li>
         </ul>
       </li>
       <li>
         <a href="program.html">Our Program</a>
-        <div class="submenu-inline">
-          <a href="#">Humanitarian Assistance</a>
-          <a href="#">Capacity Building & Training</a>
+         <div class="submenu-inline">
+          <a href="#">Humanitarian Assistance</a> 
+          <a href="#">Capacity Building & Training</a> 
           <a href="#">Emergency Response</a>
+          <a href="#">Protection and Inclusion</a> 
+          <a href="#">Advocacy & Public Awareness</a> 
+          <a href="#">Education & Training</a>
+          <a href="#">Justice and Civil Society Strengthening</a>
         </div>
       </li>
       <li><a href="projects.html">Implemented Project</a></li>
-      <li><a href="gallery.html">Gallery</a></li>
+      <li>
+        <a href="publication.html">Publication</a>
+        <ul class="submenu">
+          <li><a href="#">Success Stories</a></li>
+          <li><a href="#">Annual Reports</a></li>
+          <li><a href="#">Activity Reports</a></li>
+        </ul>
+      </li>
+      <li><a href="Gallery.html">Gallery</a></li>
       <li><a href="contact.html">Contact</a></li>
+      <li><a href="donate.html" class="donate">Donate</a></li>
     </ul>
   </div>
 </div>
 
-<!-- HERO -->
+<!-- HEADER IMAGE -->
 <div class="header-image">
-  <img src="a scenic landscape o.png" alt="Header" width="1920" height="400">
+  <img src="a scenic landscape o.png" alt="Header Image" width="1920" height="400">
 </div>
 
-<!-- ABOUT -->
+<!-- ABOUT US -->
 <div class="about-us">
-  <div style="flex:1">
-    <img src="1.webp" loading="lazy" decoding="async">
-  </div>
-  <div style="flex:1">
+  <div class="about-left"><img src="1.webp" alt="About Us" width="600" height="400"></div>
+  <div class="about-right">
     <h2>About Us</h2>
-    <p>Justice & Civil Society Support Organization (JCSSO)...</p>
+    <p><strong>Introduction:</strong> Introduction: Justice & Civil Society Support Organization (JCSSO) is a national non-governmental, non-profit, and non-political organization JCSSO’s mandate is to seek a world of hope, tolerance and social justice; where poverty has been overcome and people live in dignity, justice and security. JCSSO stablished/registered with Afghan ministry of economy in 2009 as NNGO. JCSSO puts people rights including humanitarian principle, values, transparency and accountability in the center of all performances because we know that we cannot overcome poverty and social injustice until all people have no equal rights and opportunities JCSSO is aimed to tackle the humanitarian crisis including droughts and disaster prevention and develops community basic social Services needs for the Youth, Women, IDPs and poor rural community to reduce the level of poverty and contribute National Development Goals.</p>
     <a href="background.html" class="read-more-btn">Read More</a>
   </div>
 </div>
 
 <!-- GALLERY -->
 <div class="gallery-section">
+  <h2>Our Gallery</h2>
   <div class="gallery">
-    <div><img src="1.webp" loading="lazy"></div>
-    <div><img src="2.webp" loading="lazy"></div>
-    <div><img src="3.webp" loading="lazy"></div>
-    <div><img src="4.webp" loading="lazy"></div>
+    <div><img src="1.webp" alt="Photo 1" width="300" height="300"></div>
+    <div><img src="2.webp" alt="Photo 2" width="300" height="300"></div>
+    <div><img src="3.webp" alt="Photo 3" width="300" height="300"></div>
+    <div><img src="4.webp" alt="Photo 4" width="300" height="300"></div>
   </div>
+  <div style="text-align:center; margin-top:15px;"><a href="Gallery.html" class="blue-more-btn">Read More</a></div>
 </div>
 
-<!-- SOCIAL -->
 <section class="social-map-section">
   <div class="social-map-container">
     <div class="social-box">
-      <iframe loading="lazy"
-        src="https://www.facebook.com/plugins/page.php?href=https://www.facebook.com/jcssongo/"
-        width="100%" height="400" style="border:none"></iframe>
+      <h3>Social Media</h3>
+      <!-- iframe فیس‌بوک همیشه لود می‌شود -->
+      <div id="fb-container">
+        <iframe 
+          src="https://www.facebook.com/plugins/page.php?href=https://www.facebook.com/jcssongo/&tabs=timeline&width=500&height=400&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" 
+          width="100%" 
+          height="400" 
+          style="border:none;overflow:hidden;border-radius:8px;" 
+          scrolling="no" 
+          frameborder="0" 
+          allowfullscreen="true" 
+          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+        </iframe>
+      </div>
+      <button onclick="refreshFacebook()" class="blue-more-btn">Refresh Facebook Feed</button>
     </div>
     <div class="social-box">
-      <iframe loading="lazy"
-        src="https://www.google.com/maps/embed?pb=..."
-        width="100%" height="400"></iframe>
+      <h3>Afghanistan Map</h3>
+      <iframe loading="lazy" src="https://www.google.com/maps/embed?pb=...." width="100%" height="400"></iframe>
     </div>
   </div>
 </section>
 
+
+
 <!-- DONORS -->
 <div class="donors-section">
+  <h2>Our Donors and Partners</h2>
   <div class="donors-grid">
-    <img src="doner1.jpg" loading="lazy">
-    <img src="doner2.jpg" loading="lazy">
-    <img src="doner3.jpg" loading="lazy">
-    <img src="doner4.jpg" loading="lazy">
+    <div><img src="doner1.jpg" alt="Donor 1" width="400" height="150"></div>
+    <div><img src="doner2.jpg" alt="Donor 2" width="400" height="150"></div>
+    <div><img src="doner3.jpg" alt="Donor 3" width="400" height="150"></div>
+    <div><img src="doner4.jpg" alt="Donor 4" width="400" height="150"></div>
+    <div><img src="doner5.jpg" alt="Donor 5" width="400" height="150"></div>
+    <div><img src="doner6.jpg" alt="Donor 6" width="400" height="150"></div>
+    <div><img src="doner7.jpg" alt="Donor 7" width="400" height="150"></div>
   </div>
 </div>
 
 <!-- FOOTER -->
 <footer class="site-footer">
   <div class="footer-container">
-    <div>
-      <h3>Contact</h3>
-      <p>Kabul, Afghanistan</p>
+    <div class="footer-contact">
+      <h3>Contact Us</h3>
+      <div class="contact-item"><a href="tel:+93765110110"><div class="icon"><i class="fas fa-phone"></i></div>+93 765 110 110</a></div>
+      <div class="contact-item"><a href="mailto:mudabir@jcsso.org"><div class="icon"><i class="fas fa-envelope"></i></div>mudabir@jcsso.org</a></div>
+      <div class="contact-item"><a href="#"><div class="icon"><i class="fas fa-map-marker-alt"></i></div>Kabul, Afghanistan</a></div>
     </div>
-    <div>
+    <div class="footer-links">
       <h3>Quick Links</h3>
-      <p>Home | About | Contact</p>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="program.html">Our Program</a></li>
+        <li><a href="projects.html">Implemented Project</a></li>
+        <li><a href="publication.html">Publication</a></li>
+        <li><a href="Gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
     </div>
-    <div>
-      <img src="logo.png" width="120">
+    <div class="footer-logo">
+      <img src="logo.png" alt="JCSSO Logo">
     </div>
   </div>
   <div class="footer-bottom">
-    © 2026 JCSSO
+    <div class="socials">
+      <a href="https://www.facebook.com/jcssongo/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+    </div>
+    <p>&copy; 2026 JCSSO. All Rights Reserved.</p>
   </div>
 </footer>
 
+<!-- SCRIPT TOGGLE MENU -->
 <script>
-const menuToggle=document.querySelector('.menu-toggle');
-const menu=document.querySelector('.menu');
-menuToggle.onclick=()=>menu.classList.toggle('active');
+const menuToggle = document.querySelector('.menu-toggle');
+const menu = document.querySelector('.menu');
+
+menuToggle.addEventListener('click', () => {
+  menu.classList.toggle('active');
+});
+
+// فعال کردن زیرمنو موبایل با کلیک
+document.querySelectorAll('.menu li a').forEach(link => {
+  link.addEventListener('click', function(e){
+    const submenu = this.nextElementSibling;
+    if(submenu && (submenu.classList.contains('submenu') || submenu.classList.contains('submenu-inline'))){
+      e.preventDefault();
+      submenu.classList.toggle('active');
+    }
+  });
+});
 </script>
 
 </body>
